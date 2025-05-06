@@ -7,7 +7,6 @@ title: Nike Air Mag
 */
 import React, { useRef, useState, useEffect } from "react";
 import { useGLTF, useScroll } from "@react-three/drei";
-import { useFrame } from "@react-three/fiber";
 
 export default function Model({ ...props }) {
   const group = useRef();
@@ -42,16 +41,10 @@ export default function Model({ ...props }) {
     };
   }, []);
 
-  // Alternative approach using useScroll (if you have a scrollable container)
-  // useFrame(() => {
-  //   if (group.current) {
-  //     const zoomLevel = 5 + scroll.range(0, 1) * 15; // Adjust range as needed
-  //     group.current.scale.set(zoomLevel, zoomLevel, zoomLevel);
-  //   }
-  // });
+
 
   return (
-    <group ref={group} {...props} dispose={null} scale={10}>
+    <group ref={group} {...props} dispose={null} scale={10} rotation={[0, 0, 0.3]} >
       <group position={[0, -0.025, 0]}>
         <mesh geometry={nodes.Plane040.geometry} material={materials["Sole Material"]} />
         <mesh geometry={nodes.Plane040_1.geometry} material={materials["Insole Material right"]} />
