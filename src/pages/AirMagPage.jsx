@@ -16,8 +16,8 @@ export default function AirMagPage() {
           <Canvas className="">
             <OrbitControls
               enableZoom={true}
-            // autoRotate={true}
-            // autoRotateSpeed={5.0}
+              autoRotate={true}
+              autoRotateSpeed={1.0}
             />
             <ambientLight intensity={0.5} />
             <directionalLight position={[0, 15, 5]} intensity={2} />
