@@ -11,7 +11,7 @@ export default function AirMagPage() {
       <div className="mx-10 my-5  md:flex gap-8">
         <div className="h-96 md:h-[600px] w-full md:w-[600px] relative ">
           <p className="absolute text-9xl md:text-[200px]  font-outline-2 text-transparent whitespace-nowrap top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
-            Airforce
+            Air force
           </p>
           <Canvas className="">
             <OrbitControls
@@ -74,11 +74,11 @@ export default function AirMagPage() {
               <path d="M21.947 9.179a1.001 1.001 0 0 0-.868-.676l-5.701-.453-2.467-5.461a.998.998 0 0 0-1.822-.001L8.622 8.05l-5.701.453a1 1 0 0 0-.619 1.713l4.213 4.107-1.49 6.452a1 1 0 0 0 1.53 1.057L12 18.202l5.445 3.63a1.001 1.001 0 0 0 1.517-1.106l-1.829-6.4 4.536-4.082c.297-.268.406-.686.278-1.065z"></path>
             </svg>
           </div>
-          <div className=" uppercase">
+          <div className="">
             <h4 className="mt-1 font-extralight">Limited Edition</h4>
             <div className="flex justify-between items-center md:items-start md:flex-col ">
               <h2 className="text-5xl md:text-8xl md:-mt-1 font-shoes ">
-                NIKE AIR FORCE 07
+                Nike Air Force 1 '07
               </h2>
               <p className="text-3xl md:text-5xl -mt-2 md:-mt-4">$76,927</p>
             </div>

@@ -5,20 +5,61 @@ license: CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
 source: https://sketchfab.com/3d-models/nike-air-mag-15ef47bad0aa4666b459cf78261abce5
 title: Nike Air Mag
 */
-import React, { useRef, useEffect } from "react";
-import { useGLTF } from "@react-three/drei";
+import React, { useRef, useState, useEffect } from "react";
+import { useGLTF, useScroll } from "@react-three/drei";
 
 export default function Model({ ...props }) {
-  const group = useRef();
-  const { nodes, materials } = useGLTF("/shoe3.glb");
+  const [windowSize, setWindowSize] = useState(getWindowSize());
+  useGLTF.preload(windowSize.innerWidth > 640 ?"/shoe3.glb":"/shoe_compressed.glb");
 
+  const group = useRef();
+  const { nodes, materials } = useGLTF(windowSize.innerWidth > 640 ?"/shoe3.glb":"/shoe_compressed.glb");
+  const scroll = useScroll();
+
+  // State for zoom level
+  const [zoom, setZoom] = useState(10);
 
   // Clone materials and set colors
-  // const [laceMaterial] = useState(() => materials["Laces Material"].clone());
-  // const [MainMaterial] = useState(() => materials["Main Body Material"].clone());
-  // laceMaterial.color.set("#000000");
-  // MainMaterial.color.set("#000000");
+  const [laceMaterial] = useState(() => materials["Laces Material"].clone());
+  const [MainMaterial] = useState(() => materials["Main Body Material"].clone());
+  laceMaterial.color.set("#000000");
+  MainMaterial.color.set("#000000");
 
+  // useEffect(() => {
+  //   const handleWheel = (e) => {
+  //     e.preventDefault();
+  //     // Adjust zoom based on scroll direction
+  //     setZoom(prev => {
+  //       const newZoom = prev - e.deltaY * 0.01;
+  //       // Constrain zoom between min and max values
+  //       return Math.min(Math.max(newZoom, 5), 20);
+  //     });
+  //   };
+
+  //   window.addEventListener('wheel', handleWheel, { passive: false });
+
+  //   return () => {
+  //     window.removeEventListener('wheel', handleWheel);
+  //   };
+  // }, []);
+
+
+  useEffect(() => {
+    function handleWindowResize() {
+      setWindowSize(getWindowSize());
+    }
+
+    window.addEventListener("resize", handleWindowResize);
+
+    return () => {
+      window.removeEventListener("resize", handleWindowResize);
+    };
+  }, []);
+
+  function getWindowSize() {
+    const { innerWidth, innerHeight } = window;
+    return { innerWidth, innerHeight };
+  }
 
   return (
     <group ref={group} {...props} dispose={null} scale={10} rotation={[0, 0, 0.3]} >
@@ -59,5 +100,3 @@ export default function Model({ ...props }) {
     </group>
   );
 }
-
-useGLTF.preload("/shoe3.glb");
