@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import AirMagPage from "./AirMagPage";
+import AirForcePage1 from "./AirForcePage1";
 import Sidebar from "../components/Sidebar";
 import Navbar from "../components/Navbar";
 
@@ -28,7 +28,7 @@ export default function Dashboard() {
       {windowSize.innerWidth > 640 ? <Sidebar /> : <Navbar />}
 
       <div className="h-full md:ml-28 ">
-        <AirMagPage />
+        <AirForcePage1 />
       </div>
     </div>
   );
