@@ -3,7 +3,7 @@ import nike from "../public/nike-logo.png";
 
 export default function Sidebar() {
   return (
-    <div className="flex justify-between mx-32 items-center text-white">
+    <div className="flex justify-between mt-7 items-center text-white">
       <img src={nike} className="h-8" />
       <div className="flex gap-5 items-center">
         <svg
