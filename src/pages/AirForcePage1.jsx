@@ -19,12 +19,13 @@ export default function AirForcePage1() {
 
   return (
     <div className="text-white">
-      <div className="mx-10 my-5  md:flex gap-8">
-        <div className="h-96 md:h-[600px] w-full md:w-[600px] relative ">
-          <p className="absolute text-9xl md:text-[200px]  font-outline-2 text-transparent whitespace-nowrap top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
+      <div className="grid grid-cols-12 gap-8 p-5">
+        {/* 3D Model Section */}
+        <div className="col-span-12 md:col-span-7 h-[400px] md:h-[600px] w-full relative">
+          <p className="absolute text-9xl md:text-[200px] font-outline-2 text-transparent whitespace-nowrap top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
             Air force
           </p>
-          <Canvas className="">
+          <Canvas>
             <OrbitControls
               enableZoom={true}
               autoRotate={true}
@@ -37,17 +38,19 @@ export default function AirForcePage1() {
             </Suspense>
           </Canvas>
         </div>
-        <div className="  md:ml-24 mb-8 md:mt-24">
-          <div className="">
+
+        {/* Content Section */}
+        <div className="col-span-12 md:col-span-5 flex flex-col justify-center">
+          <div>
             <h4 className="mt-1 font-extralight">Limited Edition</h4>
-            <div className="flex justify-between items-center md:items-start md:flex-col ">
-              <h2 className="text-5xl md:text-8xl md:-mt-1 font-shoes ">
+            <div className="flex justify-between items-center">
+              <h2 className="text-5xl md:text-7xl font-shoes">
                 Nike Air Force 1 '07
               </h2>
             </div>
           </div>
 
-          <div className=" mt-5">
+          <div className="mt-5">
             <p className="font-extralight">Color</p>
             <div className="flex gap-3 mt-2 items-center">
               {colors.map((color) => (

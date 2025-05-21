@@ -27,7 +27,7 @@ export default function Dashboard() {
     <div className="bg-[#000000]">
       {windowSize.innerWidth > 640 ? <Sidebar /> : <Navbar />}
 
-      <div className="h-full md:ml-28 ">
+      <div className="h-full">
         <AirForcePage1 />
       </div>
     </div>
